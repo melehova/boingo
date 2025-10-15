@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo Card Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Bingo Card Generator</h1>
+            <p>Create custom bingo cards for your events</p>
+        </header>
+
+        <main>
+            <section class="input-section">
+                <div class="input-group">
+                    <label for="words-input">Enter Words (one per line):</label>
+                    <textarea id="words-input" rows="10" placeholder="Example:&#10;Apple&#10;Banana&#10;Cherry&#10;Date&#10;Elderberry&#10;..."></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="call-list-input">Custom Call List (optional - one per line):</label>
+                    <textarea id="call-list-input" rows="10" placeholder="Example:&#10;Red fruit&#10;Yellow fruit&#10;Red berry&#10;Brown fruit&#10;Purple berry&#10;..."></textarea>
+                    <small>If provided, these will be used for calling instead of the words on cards</small>
+                </div>
+
+                <div class="controls">
+                    <div class="input-group inline">
+                        <label for="card-count">Number of Cards:</label>
+                        <input type="number" id="card-count" min="1" max="50" value="5">
+                    </div>
+                    <button id="generate-btn" class="btn btn-primary">Generate Cards</button>
+                </div>
+            </section>
+
+            <section class="cards-section" id="cards-section" style="display: none;">
+                <div class="section-header">
+                    <h2>Generated Bingo Cards</h2>
+                    <button id="export-btn" class="btn btn-secondary">Export to Word</button>
+                </div>
+                <div id="cards-container"></div>
+            </section>
+
+            <section class="call-list-section" id="call-list-section" style="display: none;">
+                <div class="section-header">
+                    <h2>Call List</h2>
+                    <div class="call-controls">
+                        <button id="shuffle-btn" class="btn btn-secondary">Shuffle</button>
+                        <button id="next-call-btn" class="btn btn-primary">Next Call</button>
+                        <button id="reset-calls-btn" class="btn btn-secondary">Reset</button>
+                    </div>
+                </div>
+                
+                <div class="current-call" id="current-call">
+                    <div class="call-number">Call #<span id="call-counter">0</span></div>
+                    <div class="call-display" id="call-display">Click "Next Call" to start</div>
+                </div>
+                
+                <div class="call-list-container">
+                    <h3>All Calls</h3>
+                    <div id="call-list-display"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
