@@ -11,6 +11,13 @@ let callListState = {
   calledIndices: []
 };
 
+// Helper function to escape HTML to prevent XSS
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
 function initApp() {
   const app = document.querySelector('#app');
   
@@ -174,7 +181,7 @@ function displayCards(cards) {
       <h3>Card ${index + 1}</h3>
       <div class="bingo-grid">
         ${card.map(word => `
-          <div class="bingo-cell ${word === 'FREE' ? 'free' : ''}">${word}</div>
+          <div class="bingo-cell ${word === 'FREE' ? 'free' : ''}">${escapeHtml(word)}</div>
         `).join('')}
       </div>
     </div>
@@ -201,7 +208,7 @@ function displayCallList() {
   
   display.innerHTML = callListState.words.map((word, index) => {
     const isCalled = callListState.calledIndices.includes(index);
-    return `<div class="call-item ${isCalled ? 'called' : ''}">${word}</div>`;
+    return `<div class="call-item ${isCalled ? 'called' : ''}">${escapeHtml(word)}</div>`;
   }).join('');
 }
 
