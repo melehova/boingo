@@ -1,16 +1,108 @@
-# React + Vite
+# 🎯 Boingo - Bingo Card Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, feature-rich bingo card generator built with React and Vite. Create custom bingo cards, manage call lists, and export to Word documents.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Custom Word Lists** - Enter your own words for personalized bingo cards
+- **Multiple Card Generation** - Generate 1-50 cards at once
+- **Randomized Cards** - Each card has unique word placement with a FREE center space
+- **Call List Manager** - Shuffle, call items sequentially, and track progress
+- **Custom Call Lists** - Use different words for calling (e.g., "Red fruit" → "Apple")
+- **Word Export** - Export all cards as images in a Word document (.docx)
+- **Modern UI** - Beautiful, responsive design that works on all devices
 
-## React Compiler
+## 🚀 Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
+- Node.js 16+ and npm
 
-## Expanding the ESLint configuration
+### Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Lint code
+npm run lint
+```
+
+## 📖 How to Use
+
+1. **Enter Words**
+   - Add at least 24 words (one per line) in the text area
+   - Set the number of bingo cards you want to generate (1-50)
+   - Click "Set Words"
+
+2. **Configure Call List** (Optional)
+   - Check "Use Custom Call List" if you want different words for calling
+   - Enter association words or hints (e.g., "Yellow fruit" instead of "Banana")
+   - Click "Set Call List"
+
+3. **Generate Cards**
+   - Click "Generate X Bingo Cards" button
+   - Cards will appear with randomized word placement
+   - Each card has a FREE space in the center
+
+4. **Manage Call List**
+   - **Shuffle** - Randomize the call order
+   - **Next Call** - Reveal the next item to call
+   - **Reset** - Start over from the beginning
+   - Called items are highlighted in green
+   - Current item is highlighted in orange
+
+5. **Export to Word**
+   - Click "📥 Export to Word Document"
+   - Cards are converted to images and saved as a .docx file
+   - Each card appears on its own page
+
+## 🛠️ Tech Stack
+
+- **React 19** - UI library
+- **Vite 7** - Build tool and dev server
+- **docx** - Word document generation
+- **html2canvas** - HTML to image conversion
+- **file-saver** - File download utility
+
+## 📁 Project Structure
+
+```
+src/
+├── components/
+│   ├── BingoCard.jsx       # Individual bingo card display
+│   ├── BingoGenerator.jsx  # Card generation logic
+│   └── CallList.jsx        # Call list with randomizer
+├── styles/
+│   ├── BingoCard.css       # Card styling
+│   ├── BingoGenerator.css  # Generator styling
+│   └── CallList.css        # Call list styling
+├── utils/
+│   └── exportToWord.js     # Word export functionality
+├── App.jsx                 # Main application
+├── App.css                 # Application styling
+└── index.css               # Global styles
+```
+
+## 🎮 Example Use Cases
+
+- **Educational Games** - Vocabulary practice, math problems, historical facts
+- **Team Building** - Ice breaker activities, company trivia
+- **Event Entertainment** - Party games, wedding activities
+- **Training** - Product names, technical terms, company culture
+
+## 📝 License
+
+This project is open source and available under the MIT License.
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
